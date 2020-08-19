@@ -1,0 +1,17 @@
+docker pull redis:3.2.11-alpine
+docker save redis:3.2.11-alpine > redis.tar
+
+tar -xvf redis.tar
+ls
+cat repositories
+tar -xvf da2a73e79c2ccb87834d7ce3e43d274a750177fe6527ea3f8492d08d3bb0123c/layer.tar
+
+tar cv --files-from /dev/null | docker import - empty
+docker images
+
+curl -LO https://raw.githubusercontent.com/moby/moby/a575b0b1384b2ba89b79cbd7e770fbeb616758b3/contrib/mkimage/busybox-static && chmod +x busybox-static
+./busybox-static busybox
+ls -lha busybox
+echo KatacodaPrivateBuild > busybox/release
+tar -C busybox -c . | docker import - busybox
+docker run busybox cat /release
