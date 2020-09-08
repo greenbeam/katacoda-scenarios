@@ -1,0 +1,13 @@
+docker search redis
+docker run -d redis
+docker run -d redis:latest
+
+docker ps
+docker run -d --name redisHostPort -p 6379:6379 redis:latest
+docker run -d --name redisDynamic -p 6379 redis:latest
+docker port redisDynamic 6379
+
+docker run -d --name redisMapped -v "$PWD/data":/data redis
+
+docker run ubuntu ps
+docker run -it ubuntu bash
