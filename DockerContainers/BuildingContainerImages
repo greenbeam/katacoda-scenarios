@@ -1,0 +1,9 @@
+# This is your Editor pane. Write the Dockerfile here and 
+# use the command line to execute commands
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
+# docker build -t my-nginx-image:latest
+# curl -i http://docker
+# docker run -d -p 80:80 my-nginx-image:latest
